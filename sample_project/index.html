@@ -1,0 +1,100 @@
+<html ng-app="sample">
+<head>
+   
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.1/css/bootstrap.min.css"  rel="stylesheet" href="style.css" />
+    <script src="https://code.angularjs.org/1.6.2/angular.js"></script>
+     <script src="script.js"></script>
+     <style>
+         
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: left;
+  padding: 16px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2
+}     </style>
+</head>
+<body ng-controller="MainCtrl">
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+    <input class="form-group" onkeyup="search()" type="text" placeholder="Search" aria-label="Search">
+    </div>
+    </div>
+    <div class="row"> 
+         <div class="col-sm-6">
+          <div class="sidenav">   
+            <div ng-repeat="data in item">
+              <ul class="list-group">
+                <li ng-click="togo(data1) "ng-repeat="data1 in data.People" class="list-group-item" style="padding:25px">
+                     {{data1.name}}<span style="text-align:right;" class="glyphicon glyphicon-play"></span>
+                </li>
+              </ul>
+             </div>
+          </div>
+        </div>
+         <div class="col-sm-6">
+            <div class="main">
+            <div class="row">
+                <div class="col-sm-2">
+                   <img src="{{item2.img}}" class="img-rounded" alt="Cinque Terre" style="width:80px">
+                </div>
+                <div class="col-sm-2">
+                   <button style="font-size:11px;" type="button" class="btn btn-primary">SEND MESSAGE!</button>
+                   <!-- <input id="rating-system" type="number" class="rating" min="1" max="5" step="1"> -->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-1 style="border-left:4px grey solid"></div>
+                <div class="col-sm-5">
+                {{item2.Description}}
+                 </div>
+            </div>
+            <div class="row">
+              <table>
+                <tr>
+                  <th>Likes</th>
+                   <th>Dislikes</th>
+                </tr>        
+                <tr ng-repeat="data2 in item">       
+                <tr ng-repeat="data3 in data2.People">
+                  <td>{{data3.Likes}}
+                  </td>
+                  <td>{{data3.Dislikes}}
+                  </td>
+                </tr>
+                </tr>
+              </table>
+            </div>
+            </div>
+           
+    </div>
+ </div> 
+
+    <!-- <heroes data="heroes"></heroes>
+    <input type="text" search>
+    <my-button style="background-color:red;"></my-button> -->
+    <!-- <script>
+    var app=angular.module("vlocity", []);
+    app.directive('heroes', function(){
+        return{
+        scope={ 
+            heroes: '=data' 
+        }, 
+        template= '<li ng-repeat="x in heroes">{{ x.Name }} </li>', // DOESNT WORK
+        link= function(scope,element,attributes){
+
+            }
+        }
+    });
+    </script> -->
+</body>
+</html>  
